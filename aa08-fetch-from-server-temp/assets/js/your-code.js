@@ -37,12 +37,8 @@ export function postNewDogV2(name, age) {
 }
 
 export function deleteDog(id) {
-  let stringID = id.toString();
-  let url = "/dogs/" + stringID + "/delete";
-
-  return fetch(url, {
+  return fetch(`/dogs/${id}/delete`, {
     method: "POST",
-    header: { "AUTH": "ckyut5wau0000jyv5bsrud90y" },
-    body: false,
+    headers: { "AUTH": "ckyut5wau0000jyv5bsrud90y" }
   });
 }
