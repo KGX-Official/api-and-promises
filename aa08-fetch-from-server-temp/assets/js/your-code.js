@@ -22,9 +22,27 @@ export function postNewDog() {
 }
 
 export function postNewDogV2(name, age) {
-  // Your code here
+  const params = new URLSearchParams({
+    name: name,
+    age: age,
+  });
+
+  return fetch("/dogs", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: params,
+  });
 }
 
 export function deleteDog(id) {
-  // Your code here
+  let stringID = id.toString();
+  let url = "/dogs/" + stringID + "/delete";
+
+  return fetch(url, {
+    method: "POST",
+    header: { "AUTH": "ckyut5wau0000jyv5bsrud90y" },
+    body: false,
+  });
 }
